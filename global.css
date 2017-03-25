@@ -1,0 +1,39 @@
+body {
+  background-color: rgb(172, 180, 186);
+  background-image: url(https://i.ytimg.com/vi/2XX5zDThC3U/maxresdefault.jpg);
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+h1 {
+  margin: 30px 100px 20px 100px;
+  padding: 30px;
+  letter-spacing: 10px;
+  font-weight: 700;
+  font-size: 40px;
+  color: rgb(199, 199, 199);
+  background-color: rgba(0, 0, 0, 0.37);
+  border-radius: 10px;
+}
+
+img.media-object {
+  width: 70px;
+  background-color: rgb(227, 227, 227);
+}
+
+div.panel {
+  max-width: 700px;
+  margin-bottom: 20px;
+  padding: 10px;
+}
+
+div.panel a {
+  font-size: 10px;
+  padding-left: 5px;
+}
+
+p span.badge {
+  font-size: 9px;
+  font-weight: 300;
+  letter-spacing:1px;
+}

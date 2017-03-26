@@ -49,23 +49,45 @@ $(document).ready(function(){
   function tag_list_display(tags) {
     var disp = ""
     tags.forEach(
-      tag => {disp +=`<a href="#"><span class="badge">${tag.name}</span></a>`}
+      tag => {disp +=`<a href=""><span class="badge tag">${tag.name}</span></a>`}
     )
     return disp
   }
 
-  
+// load functions
 
-  fetch(api_root+"notes")
-  .then( response => response.json()) //convert from json
-  .then( data => {
-    console.log(data.notes)
-    data.notes.forEach( note => {
+  function load_notes(notes) {
+    notes.forEach( note => {
       $('#notes').append(
         note_display(note)
       )
     })
+  }
+
+  function load_tag_notes(tag) {
+    $('div.header h1').html(`NOTEmeister 5000: <p>${tag}</p>`)
+    $('#notes').empty()
+    fetch(tag_url(tag))
+    .then( response => response.json())
+    .then( data => {
+      load_notes(data.tag.notes)
+    })
+  }
+
+//listeners
+
+  $(document).on('click', 'span.tag',ev => {
+    ev.preventDefault()
+    tag = ev.target.textContent
+    load_tag_notes(tag)
   })
+
+//initial load
+  fetch(api_root+"notes")
+  .then( response => response.json()) //convert from json
+  .then( data => {
+    load_notes(data.notes)
+    })
 
 
 

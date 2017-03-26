@@ -8,12 +8,16 @@ body {
 h1 {
   margin: 30px 100px 20px 100px;
   padding: 30px;
-  letter-spacing: 10px;
+  letter-spacing: 8px;
   font-weight: 700;
-  font-size: 40px;
+  font-size: 30px;
   color: rgb(199, 199, 199);
-  background-color: rgba(0, 0, 0, 0.37);
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 10px;
+}
+h1 p {
+  font-size: 20px;
+  letter-spacing: 5px;
 }
 
 img.media-object {

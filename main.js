@@ -2,6 +2,7 @@ testvar = ""
 $(document).ready(function(){
 
   api_root = "https://enigmatic-plateau-14785.herokuapp.com/api/"
+  // api_root = "http://localhost:8000/"
 
   // Utility Methods
   function set_token(token) {
@@ -25,8 +26,18 @@ $(document).ready(function(){
     // }
   }
 
-  function reset_form(form_id){
+  function resetForm(form_id){
     $(form_id)[0].reset()
+  }
+
+  function toggle_sign_in(){
+    if(signed_in()){
+      $('.logged_out').hide()
+      $('.logged_in').show()
+    }else{
+      $('.logged_in').hide()
+      $('.logged_out').show()
+    }
   }
 
 
@@ -103,8 +114,34 @@ $(document).ready(function(){
     })
   }
 
+
+
 //listeners
 
+  //signout
+  $(document).on('click', '#logout', ev => {
+    ev.preventDefault()
+    log_out()
+    toggle_sign_in()
+    populate()
+  })
+
+  //signin
+  $(document).on('submit', '#loginForm', ev => {
+    ev.preventDefault()
+    console.log("submitting...")
+    console.log($('#loginForm').serialize())
+    $.post(api_root + "login", $('#loginForm').serialize())
+      .done(response => {
+        set_token(response.token)
+        resetForm('#loginForm')
+        toggle_sign_in()
+        populate()
+      })
+  })
+
+
+  // load notes for a specific tag
   $(document).on('click', 'span.tag',ev => {
     ev.preventDefault()
     tag = ev.target.textContent
@@ -122,10 +159,11 @@ $(document).ready(function(){
   // submit create a note form
   $(document).on('submit','#postNote' ,ev => {
      ev.preventDefault()
+     console.log($('#postNote').serialize())
      $.post(api_root+"notes?token=" + get_token(), $('#postNote').serialize())
       .done( note => {
         $('#notes').prepend(note_display(note.note))
-        reset_form('#postNote')
+        resetForm('#postNote')
         $('#mrModal').modal('hide')
       })
   })
@@ -137,18 +175,47 @@ $(document).ready(function(){
     noteModalDisplay(ev.target.hash)
   })
 
+  $("#signup").popover({
+      title: '<h4>Get Started!</h4>',
+      container: 'body',
+      placement: 'bottom',
+      html: true,
+      content: () => {
+            return $('#popover-signup').html()
+      }
+  })
+
+  $("#login").popover({
+      title: '<h4>Get Started!</h4>',
+      container: 'body',
+      placement: 'bottom',
+      html: true,
+      content: () => {
+            return $('#popover-login').html()
+      }
+  })
+
+
+
 
 
 //initial load
-  fetch(api_root+"notes")
-  .then( response => response.json()) //convert from json
-  .then( data => {
-    load_notes(data.notes)
-    if(window.location.hash){
-      noteModalDisplay(location.hash)
-    }
-  })
+  function populate(bool = false) {
+    fetch(api_root+"notes")
+    .then( response => response.json()) //convert from json
+    .then( data => {
+      load_notes(data.notes)
+      if(bool && window.location.hash){
+        noteModalDisplay(location.hash)
+      }
+    })
+  }
 
+  populate(true)
+  toggle_sign_in()
+  $(() => {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
 
 
 }) // close of the 'document ready' thing

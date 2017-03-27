@@ -9,6 +9,12 @@ body {
   padding: 0px 20px 20px 0px;
 }
 
+.popover {
+    width: 304px;
+    max-width: 100%;
+    position: fixed;
+}
+
 h1 {
   margin: 30px 100px 20px 100px;
   padding: 30px;

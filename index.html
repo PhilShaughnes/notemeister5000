@@ -28,15 +28,45 @@
 
 
         <ul class="nav navbar-nav navbar-right">
-          <li><button href="#" class="btn btn-info navbar-btn">logOut</button></li>
-          <li class="btn-group btn-group-sm">
-            <button href="#" class="btn btn-primary navbar-btn">logIn</button>
-            <button href="#" class="btn btn-info navbar-btn">signUp</button>
+          <li><button href="#" class="btn btn-info navbar-btn logged_in" id="logout">Log Out</button></li>
+          <li class="btn-group btn-group-sm logged_out">
+            <button href="#" class="btn btn-primary navbar-btn" id="login" data-toggle="popover">Log In</button>
+            <button href="#" class="btn btn-info navbar-btn" id="signup" data-toggle="popover">Sign Up</button>
           </li>
         </ul>
 
       </div>
     </nav>
+
+    <div id="popover-login" class="hide pop">
+      <form action="#" id="loginForm">
+        <div class="form-group">
+          <input name="username" class="form-control" type="text" placeholder="username"></input>
+        </div>
+        <div class="form-group">
+            <input name="password" type="password" placeholder="Enter password" class="form-control"></input>
+        </div>
+          <button type="submit" class="btn btn-warning">Sign In</button>
+      </form>
+    </div>
+
+    <div id="popover-signup" class="hide pop">
+      <form id="signupForm" action="#" >
+        <div class="form-group">
+            <input name="username" type="text" placeholder="Enter username" class="form-control"></input>
+        </div>
+        <div class="form-group">
+            <input name="email" type="text" placeholder="Enter email address" class="form-control">test</input>
+        </div>
+        <div class="form-group">
+            <input name="password" type="password" placeholder="Enter password" class="form-control">testpswd</input>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-warning">Sign Up</button>
+        </div>
+
+      </form>
+    </div>
 
   <!--- nav end --->
     <div class="container" id="content">
@@ -74,8 +104,8 @@
       <div class="container">
 
         <ul class="nav navbar-nav navbar-right">
-          <li>
-            <button href="#" class="dropdown-toggle btn navbar-btn btn-danger btn-lg" id="add" role="button" ><i class="glyphicon glyphicon-plus"></i></button>
+          <li data-toggle="tooltip" data-placement="left" title="Add Notes!">
+            <button href="#" class="dropdown-toggle btn navbar-btn btn-danger btn-lg" id="add" role="button"><i class="glyphicon glyphicon-plus"></i></button>
 
           </li>
         </ul>

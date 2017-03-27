@@ -141,3 +141,15 @@ $(document).ready(function(){
 
 })
 Contact GitHub API Training Shop Blog About
+
+function populate_chirps() {
+  $('#chirp_list').empty()
+  $.getJSON(timeline_url())
+    .done(function(response){
+      response.forEach(function(chirp){
+        $('#chirp_list').append(
+          chirp_display(chirp)
+        )
+      })
+    })
+  }

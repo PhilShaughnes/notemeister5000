@@ -120,7 +120,7 @@ $(document).ready(function(){
     })
 
     function first_load(){
-      $('#chirp_list').empty() 
+      $('#chirp_list').empty()
       $.getJSON(timeline_url())
         .done(function(response){
           response.forEach(function(chirp){
@@ -133,7 +133,6 @@ $(document).ready(function(){
           }
         })
     }
-
 
 
   toggle_sign_in()

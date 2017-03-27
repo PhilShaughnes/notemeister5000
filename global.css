@@ -5,6 +5,10 @@ body {
   background-size: cover;
 }
 
+.navbar-right {
+  padding: 0px 20px 20px 0px;
+}
+
 h1 {
   margin: 30px 100px 20px 100px;
   padding: 30px;

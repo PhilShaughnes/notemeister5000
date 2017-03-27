@@ -23,9 +23,22 @@
   <body>
 
   <!--- nav start --->
-    
+    <nav class="navbar navbar-fixed-top">
+      <div class="container-fluid">
 
 
+        <ul class="nav navbar-nav navbar-right">
+          <li><button href="#" class="btn btn-info navbar-btn">logOut</button></li>
+          <li class="btn-group btn-group-sm">
+            <button href="#" class="btn btn-primary navbar-btn">logIn</button>
+            <button href="#" class="btn btn-info navbar-btn">signUp</button>
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+
+  <!--- nav end --->
     <div class="container" id="content">
 
       <div class="row header">
@@ -37,14 +50,14 @@
         </div>
       </div>
 
+
+
+
             <!-- Modal -->
-      <div class="modal fade text-left" id="click" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+      <div class="modal fade text-left" id="mrModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-              <h4 class="modal-title" id="myModalLabel"> </h4>
-            </div>
+
             <div class="modal-body">
 
             </div>
@@ -53,9 +66,42 @@
       </div>
 
 
+    </div>
+
+    <!-- navbar -->
+
+    <nav class="navbar navbar-fixed-bottom">
+      <div class="container">
+
+        <ul class="nav navbar-nav navbar-right">
+          <li>
+            <button href="#" class="dropdown-toggle btn navbar-btn btn-danger btn-lg" id="add" role="button" ><i class="glyphicon glyphicon-plus"></i></button>
+
+          </li>
+        </ul>
+
+      </div>
+    </nav>
+    <!-- close navbar -->
+
+    <!-- Modal -->
+    <!-- <div class="modal fade text-left" id="click2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+          <h4 class="modal-title" id="myModalLabel"> </h4>
+        </div>
+        <div class="modal-body">
+
+        </div>
+      </div>
+    </div>
+    </div> -->
 
 
     </div>
+
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
